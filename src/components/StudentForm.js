@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const SchoolForm = () => {
-    const [school, setSchool] = useState({
-        school_firstname: '',
-        school_lastName: '',
-        udisecode: '',
+const StudentForm = () => {
+    const [student, setStudent] = useState({
+        firstName: '',
+        lastName: '',
+        dob:'',
         email: '',
         phonenumber: '',
         address: '',
     });
 
     const handleChange = (e) => {
-        setSchool({
-            ...school,
+        setStudent({
+            ...student,
             [e.target.name]: e.target.value,
         });
     };
@@ -21,11 +21,11 @@ const SchoolForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8080/schools', school);
-            alert('School added successfully!');
+            const response = await axios.post('http://localhost:8080/students', student);
+            alert('Student added successfully!');
             console.log(response.data);
         } catch (error) {
-            console.error('There was an error saving the school!', error);
+            console.error('There was an error saving the student!', error);
         }
     };
 
@@ -33,25 +33,25 @@ const SchoolForm = () => {
         <form onSubmit={handleSubmit}>
             <input
                 type="text"
-                name="school_firstname"
+                name="firstName"
                 placeholder="First Name"
-                value={school.school_firstname}
+                value={student.firstName}
                 onChange={handleChange}
                 required
             />
             <input
                 type="text"
-                name="school_lastName"
+                name="lastName"
                 placeholder="Last Name"
-                value={school.school_lastName}
+                value={student.lastName}
                 onChange={handleChange}
                 required
             />
             <input
                 type="number"
-                name="udisecode"
-                placeholder="U-DISE Code"
-                value={school.udisecode}
+                name="dob"
+                placeholder="date of birth"
+                value={student.dob}
                 onChange={handleChange}
                 required
             />
@@ -59,7 +59,7 @@ const SchoolForm = () => {
                 type="email"
                 name="email"
                 placeholder="Email"
-                value={school.email}
+                value={student.email}
                 onChange={handleChange}
                 required
             />
@@ -67,7 +67,7 @@ const SchoolForm = () => {
                 type="text"
                 name="phonenumber"
                 placeholder="Phone Number"
-                value={school.phonenumber}
+                value={student.phonenumber}
                 onChange={handleChange}
                 required
             />
@@ -75,13 +75,13 @@ const SchoolForm = () => {
                 type="text"
                 name="address"
                 placeholder="Address"
-                value={school.address}
+                value={student.address}
                 onChange={handleChange}
                 required
             />
-            <button type="submit">Add School</button>
+            <button type="submit">Add Student</button>
         </form>
     );
 };
 
-export default SchoolForm;
+export default StudentForm;

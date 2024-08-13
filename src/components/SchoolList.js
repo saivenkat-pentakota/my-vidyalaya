@@ -22,7 +22,7 @@ const SchoolList = () => {
             <ul>
                 {schools.map((school) => (
                     <li key={school.id}>
-                        {school.school_firstname} {school.school_lastName} - {school.udlisecode}
+                        {school.school_firstname} {school.school_lastName} - {school.udisecode}
                     </li>
                 ))}
             </ul>
