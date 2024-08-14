@@ -8,7 +8,7 @@ const ClassList = () => {
         const fetchClasses = async () => {
             try {
                 const response = await axios.get('http://localhost:8080/classes');
-                setStudents(response.data);
+                setClasses(response.data);
             } catch (error) {
                 console.error('There was an error fetching the clases!', error);
             }
