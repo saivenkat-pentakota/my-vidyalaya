@@ -48,7 +48,7 @@ const StudentForm = () => {
                 required
             />
             <input
-                type="number"
+                type="date"
                 name="dob"
                 placeholder="date of birth"
                 value={student.dob}
