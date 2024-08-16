@@ -1,12 +1,14 @@
 import React from 'react';
-import SchoolForm from './components/SchoolForm';
+import StudentForm from './components/StudentForm';
+// import SchoolForm from './components/SchoolForm';
 
 
 const App = () => {
     return (
         <div>
             <h1>My Vidyalaya</h1>
-            <SchoolForm />
+            {/* <SchoolForm /> */}
+            <StudentForm/>
         </div>
     );
 };
