@@ -15,10 +15,18 @@ const StudentForm = () => {
     const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
-        setStudent({
-            ...student,
-            [e.target.name]: e.target.value,
-        });
+        const { name, value } = e.target;
+
+        setStudent((prevStudent) => ({
+            ...prevStudent,
+            [name]: value,
+        }));
+
+        
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            [name]: '',
+        }));
     };
 
     const validate = () => {
@@ -86,6 +94,9 @@ const StudentForm = () => {
     return (
         <form className="form-container" onSubmit={handleSubmit}>
             <div>
+                <div>
+                    <h2  style={{textAlign:"center"}}>STUDENT FORM</h2>
+                </div>
                 <input
                     type="text"
                     name="student_firstname"

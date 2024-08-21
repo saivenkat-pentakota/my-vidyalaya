@@ -15,10 +15,18 @@ const SchoolForm = () => {
     const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
-        setSchool({
-            ...school,
-            [e.target.name]: e.target.value,
-        });
+        const { name, value } = e.target;
+
+        setSchool((prevSchool) => ({
+            ...prevSchool,
+            [name]: value,
+        }));
+
+        
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            [name]: '',
+        }));
     };
 
     const validate = () => {
@@ -59,7 +67,7 @@ const SchoolForm = () => {
         setErrors(validationErrors);
 
         if (Object.keys(validationErrors).length === 0) {
-            console.log('Sending data:', school); // Log the data being sent
+            console.log('Sending data:', school); 
             try {
                 const response = await axios.post('http://localhost:8080/schools', school, {
                     headers: {
@@ -69,7 +77,7 @@ const SchoolForm = () => {
                 alert('School added successfully!');
                 console.log(response.data);
 
-                // Reset the form after successful submission
+                
                 setSchool({
                     school_firstname: '',
                     school_lastName: '',
@@ -79,7 +87,7 @@ const SchoolForm = () => {
                     address: '',
                 });
 
-                setErrors({}); // Clear any errors
+                setErrors({});
             } catch (error) {
                 console.error('There was an error saving the school!', error.response?.data || error);
             }
@@ -88,6 +96,9 @@ const SchoolForm = () => {
 
     return (
         <form className="form-container" onSubmit={handleSubmit}>
+            <div>
+                <h2  style={{textAlign:"center"}}>SCHOOL FORM</h2>
+            </div>
             <div>
                 <input
                     type="text"

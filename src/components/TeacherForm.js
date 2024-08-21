@@ -16,11 +16,20 @@ const TeacherForm = () => {
     const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
-        setTeacher({
-            ...teacher,
-            [e.target.name]: e.target.value,
-        });
+        const { name, value } = e.target;
+
+        setTeacher((prevTeacher) => ({
+            ...prevTeacher,
+            [name]: value,
+        }));
+
+        
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            [name]: '',
+        }));
     };
+
 
     const validate = () => {
         let errors = {};
@@ -70,7 +79,7 @@ const TeacherForm = () => {
                 alert('Teacher added successfully!');
                 console.log(response.data);
 
-                // Reset the form after successful submission
+                
                 setTeacher({
                     teacher_firstName: '',
                     teacher_lastName: '',
@@ -81,7 +90,7 @@ const TeacherForm = () => {
                     address: '',
                 });
 
-                setErrors({}); // Clear any errors
+                setErrors({});
             } catch (error) {
                 console.error('There was an error saving the teacher!', error.response?.data || error);
             }
@@ -91,6 +100,9 @@ const TeacherForm = () => {
     return (
         <form className="form-container" onSubmit={handleSubmit}>
             <div>
+                <div>
+                    <h2  style={{textAlign:"center"}}>Teacher Form</h2>
+                </div>
                 <input
                     type="text"
                     name="teacher_firstName"
