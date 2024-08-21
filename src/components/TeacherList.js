@@ -22,7 +22,7 @@ const   TeacherList = () => {
             <ul>
                 {teachers.map((teacher) => (
                     <li key={teacher.id}>
-                        {teacher.teacher_firstname} {teacher.teacher_lastName}
+                        {teacher.teacher_firstname} {teacher.teacher_lastName} -{teacher.subject} - {teacher.dob} - {teacher.email} - {teacher.phonenumber} - {teacher.address}
                     </li>
                 ))}
             </ul>

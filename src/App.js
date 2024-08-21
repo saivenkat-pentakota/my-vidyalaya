@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TeacherForm from './components/TeacherForm';
 import StudentForm from './components/StudentForm';
 import SchoolForm from './components/SchoolForm';
+import SchoolList from './components/SchoolList';
+import TeacherList from './components/TeacherList';
 
 const App = () => {
     return (
@@ -14,6 +16,10 @@ const App = () => {
                     <Route path="/student" element={<StudentForm />} />
                     <Route path="/teacher" element={<TeacherForm />} />
                     <Route path="/" element={<SchoolForm />} />
+                    <Route path='/schoolslist' element={<SchoolList/>}/>
+                    <Route path='/teacherslist' element={<TeacherList/>}/>
+                    <Route path='/schoolslist' element={<SchoolList/>}/>
+
                 </Routes>
             </div>
         </Router>
