@@ -76,8 +76,8 @@ const StudentForm = () => {
 
                 
                 setStudent({
-                    student_firstname: '',
-                    student_lastname: '',
+                    firstName: '',
+                    lastName: '',
                     studentId: '',
                     email: '',
                     phonenumber: '',
@@ -99,9 +99,9 @@ const StudentForm = () => {
                 </div>
                 <input
                     type="text"
-                    name="student_firstname"
+                    name="firstName"
                     placeholder="First Name"
-                    value={student.student_firstname}
+                    value={student.firstName}
                     onChange={handleChange}
                 />
                 {errors.student_firstname && <span className="error">{errors.student_firstname}</span>}
@@ -110,15 +110,15 @@ const StudentForm = () => {
             <div>
                 <input
                     type="text"
-                    name="student_lastname"
+                    name="lastName"
                     placeholder="Last Name"
-                    value={student.student_lastname}
+                    value={student.lastName}
                     onChange={handleChange}
                 />
-                {errors.student_lastname && <span className="error">{errors.student_lastname}</span>}
+                {errors.lastName && <span className="error">{errors.lastName}</span>}
             </div>
 
-            <div>
+            {/* <div>
                 <input
                     type="text"
                     name="studentId"
@@ -127,7 +127,7 @@ const StudentForm = () => {
                     onChange={handleChange}
                 />
                 {errors.studentId && <span className="error">{errors.studentId}</span>}
-            </div>
+            </div> */}
 
             <div>
                 <input

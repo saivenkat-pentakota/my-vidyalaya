@@ -5,6 +5,7 @@ import StudentForm from './components/StudentForm';
 import SchoolForm from './components/SchoolForm';
 import SchoolList from './components/SchoolList';
 import TeacherList from './components/TeacherList';
+import StudentList from './components/StudentList';
 
 const App = () => {
     return (
@@ -19,6 +20,7 @@ const App = () => {
                     <Route path='/schoolslist' element={<SchoolList/>}/>
                     <Route path='/teacherslist' element={<TeacherList/>}/>
                     <Route path='/schoolslist' element={<SchoolList/>}/>
+                    <Route path='/studentslist' element={<StudentList/>}/>
 
                 </Routes>
             </div>
